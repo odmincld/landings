@@ -1,0 +1,27 @@
+.soc1als {
+  @include mobile {
+    order: 1;
+  }
+
+  &__list {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__link {
+    @include flex-center(true);
+    @include square(30px);
+
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-radius: 50%;
+
+    svg {
+      @include square(60%);
+    }
+
+    @include hover {
+      background-color: var(--color-green);
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.contact-us {
+  position: relative;
+  overflow-x: hidden;
+
+  @include mobile-above {
+    padding: 60px 100px 80px;
+    background-color: var(--color-grey);
+    border-radius: var(--border-radius-big);
+  }
+
+  &__form {
+    @include tablet-above {
+      max-width: 556px;
+    }
+
+    @include mobile-above {
+      @include flex-column(40px);
+    }
+  }
+
+  &__request-types {
+    @include mobile {
+      background-color: var(--color-grey);
+      padding: 40px 52px 36px;
+      border-radius: var(--border-radius-big) var(--border-radius-big) 0px 0px;
+    }
+  }
+
+  &__body {
+    @include flex-column(25px);
+
+    @include mobile {
+      background-color: var(--color-grey);
+      padding: 10px 30px 50px;
+      border-radius: 0px 0px var(--border-radius-big) var(--border-radius-big);
+      margin-bottom: 30px;
+      row-gap: 20px;
+    }
+  }
+
+  &::after {
+    --contactUsImageOffsetY: 62px;
+
+    content: "";
+    height: 86%;
+    aspect-ratio: 1;
+    position: absolute;
+    background: url("/images/contact-us-image.svg") center/contain no-repeat;
+    left: 100%;
+    top: 50%;
+    translate: -53% -50%;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include mobile {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.team {
+  @include flex-column(40px);
+
+  &__list {
+    --gridColumns: 3;
+
+    @include desktop {
+      --gridColumns: 2;
+    }
+    @include mobile {
+      --gridColumns: 1;
+    }
+  }
+
+  &__item {
+    &:nth-child(n + 5) {
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    align-self: end;
+    min-width: 269px;
+
+    @include mobile {
+      min-width: 100%;
+    }
+  }
+}

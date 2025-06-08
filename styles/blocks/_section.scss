@@ -1,0 +1,37 @@
+.section {
+  padding-block: var(--section-padding-y);
+
+  &-hidden-x {
+    overflow-x: hidden;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    margin-bottom: 80px;
+
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+      row-gap: 30px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__discription {
+    max-width: 580px;
+
+    &.medium-width {
+      max-width: 473px;
+    }
+
+    &.small-width {
+      max-width: 323px;
+
+      @include mobile {
+        max-width: 390px;
+      }
+    }
+  }
+}

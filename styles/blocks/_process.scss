@@ -1,0 +1,115 @@
+.process {
+  &__list {
+    @include flex-column(30px);
+    counter-reset: custom-counter;
+    list-style: none;
+
+    @include mobile {
+      row-gap: 20px;
+    }
+  }
+
+  &__item {
+    --counterContent: counter(custom-counter);
+
+    counter-increment: custom-counter;
+
+    &:nth-child(-n + 9) {
+      --counterContent: "0" counter(custom-counter);
+    }
+  }
+
+  &__accordion {
+    --indicatorVerticalRotate: 90deg;
+
+    padding: 40px 60px;
+    background-color: var(--color-grey);
+    transition-duration: var(--transition-duration);
+
+    @include border-card;
+
+    @include mobile {
+      padding: 30px;
+    }
+
+    @include hover {
+      background-color: var(--color-green);
+    }
+
+    &:open {
+      background-color: var(--color-green);
+
+      --indicatorVerticalRotate: 0deg;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      column-gap: 30px;
+
+      @include mobile {
+        column-gap: 25px;
+      }
+    }
+
+    &-title {
+      display: flex;
+      column-gap: 25px;
+      align-items: center;
+
+      @include mobile {
+        font-size: 18px;
+        column-gap: 33px;
+      }
+
+      &::before {
+        content: counter(custom-counter);
+        font-size: 2em;
+        font-weight: 500;
+
+        @include mobile {
+          font-size: 30px;
+        }
+      }
+    }
+
+    &-indicator {
+      @include flex-center;
+      @include square(58px);
+      @include mobile {
+        @include square(30px);
+      }
+
+      position: relative;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: var(--border);
+      background-color: var(--color-grey);
+
+      &::before,
+      &::after {
+        @include abs-center;
+
+        content: "";
+        position: absolute;
+        width: 45%;
+        height: 10%;
+        background-color: var(--color-dark);
+      }
+      &::after {
+        display: flex;
+        rotate: var(--indicatorVerticalRotate);
+        transition-duration: var(--transition-duration);
+      }
+    }
+
+    &-body {
+      border-top: var(--border);
+      margin-top: 30px;
+      padding-top: 30px;
+    }
+  }
+}

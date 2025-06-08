@@ -1,0 +1,11 @@
+.services {
+  &__list {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 100px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      margin-bottom: 70px;
+    }
+  }
+}
